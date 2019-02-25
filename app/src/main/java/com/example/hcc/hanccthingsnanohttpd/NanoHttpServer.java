@@ -38,7 +38,12 @@ public class NanoHttpServer extends NanoHTTPD {
             } catch (ResponseException e) {
                 e.printStackTrace();
             }
-            response = new Response(Response.Status.OK, "text/plain; charset=UTF-8", "{\"code\":0,\"data\":\"将要发送9200广播\" }");
+
+            String responseresult = "{\"code\":0,\"data\":[{\"xiaohua\":{\"height\":175,\"weight\":\"55\",\"age\":\"18\",\"sex\":\"F\",\"course\":[\"english\",\"Chinese\",\"mathematics\"],\"sport\":[\"football\",\"basketball\"]}},{\"xiaoming\":{\"height\":\"180\",\"weight\":\"70\",\"age\":\"18\",\"sex\":\"M\",\"course\":[\"english\",\"Chinese\",{\"mathematics\":[\"daishu\",\"jihe\"]}]}}]}";
+
+            // response = new Response(Response.Status.OK, "text/plain; charset=UTF-8", "{\"code\":0,\"data\":\"将要发送9200广播\" }");
+            response = new Response(Response.Status.OK, "text/plain; charset=UTF-8", responseresult);
+
         }else{
             response = new Response(Response.Status.OK, "text/plain; charset=UTF-8", "{\"code\":1,\"data\":\"not found\" }");
         }
